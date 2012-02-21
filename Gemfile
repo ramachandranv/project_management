@@ -18,6 +18,8 @@ end
 
 gem 'jquery-rails'
 gem 'devise'
+gem 'haml'
+gem 'haml-rails', '0.3.4'
 
 gem 'execjs'
 gem 'therubyracer' 

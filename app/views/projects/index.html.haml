@@ -1,3 +1,16 @@
 %h1 My Projects
 %p
   = link_to 'Sign out', destroy_user_session_path, :method => 'delete'
+
+%p
+  =link_to 'New project', new_project_path
+
+.projects
+  - if @projects.present?
+    - @projects.each do |project|
+      %h2= link_to project.name, "/projects/#{project.id}"
+      %p= project.description
+      %p= link_to 'Edit', edit_project_path(project)
+      %p= link_to 'Delete', project, :method => 'delete', :confirm => 'This project will be deleted permanently. Do you wish to continue?'
+      %hr
+      %br 

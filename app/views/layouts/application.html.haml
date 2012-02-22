@@ -6,6 +6,34 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    %p= notice
-    %p= alert
-    = yield 
+    .topbar
+      .topbar-inner
+        .container
+          %h3 
+            =link_to "Project Management", root_path
+          %ul
+            %li.active 
+              =link_to "Home", root_path
+          %form.pull-left
+            =text_field_tag "search", nil, :placeholder=>"Search"
+          %ul.nav.secondary-nav
+            %li.dropdown(data-dropdown="dropdown")
+              - if current_user
+                =link_to "Welcome #{current_user.email}", "#", :class=>"dropdown-toggle"
+              - else
+                =link_to "Welcome Guest", "#"
+              %ul.dropdown-menu
+                %li=link_to "Profile", "#"
+                %li.divider
+                %li=link_to "Sign out", "/users/sign_out", :method=>:delete
+ 
+    .container#page
+      #content.row
+        #left.span12
+          -if notice || alert
+            .alert-message
+              %p.notice
+                =notice
+              %p.alert
+                =alert
+          = yield 

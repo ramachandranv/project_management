@@ -1,3 +1,37 @@
 // Place all the styles related to the projects controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.head h1 {
+  float: left;
+}
+
+.create_project {
+  margin-left: 430px;
+  margin-top: 4px;
+}
+
+.controls {
+  float: right;
+  margin-top: 12px;
+}
+
+.project_form h2 {
+  text-align: center;
+}
+
+#new_project, .edit_project {
+  margin-top: 20px;
+  margin-left: 80px;
+}
+
+#project_description {
+  height: 200px;
+}
+
+#errorExplanation {
+  margin-left: 80px;
+}
+
+.description {
+  font-size: 12pt;
+}

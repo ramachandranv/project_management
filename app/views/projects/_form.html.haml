@@ -1,11 +1,23 @@
 = form_for @project do |f|
-  =f.label :name
-  =f.text_field :name
-  %br
-  =f.label :description
-  =f.text_area :description
-  %br
-  - if type == 'new'
-    =f.submit "Create Project"
-  - else
-    =f.submit "Update"
+  -if @project.errors.any?
+    #errorExplanation
+      %h3
+        = pluralize(@project.errors.count, "error") 
+        prohibited this post from being saved
+      %ul
+        - @project.errors.full_messages.each do |msg| 
+          %li= msg
+  .clearfix
+    =f.label :name
+    .input
+      =f.text_field :name, :class => "xlarge"
+  .clearfix
+    =f.label :description
+    .input
+      =f.text_area :description, :class => "xlarge"
+  .clearfix
+    .input
+      - if type == 'new'
+        =f.submit "Create Project", :class => "btn primary"
+      - else
+        =f.submit "Update Project", :class => "btn primary"

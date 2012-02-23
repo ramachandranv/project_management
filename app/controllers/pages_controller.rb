@@ -8,11 +8,12 @@ class PagesController < ApplicationController
   end
 
   def create
+    @project = Project.find(params[:project_id])
     @page = Page.new(params[:page])
     if @page.save
       redirect_to "/projects/#{@page.project_id}", :notice => "Page added successfully"
     else
-      render action => 'new'
+      render :action => 'new'
     end
   end
 

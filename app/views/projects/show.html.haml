@@ -9,6 +9,10 @@
     });
 
 .project_details
+  %span.controls
+    = link_to "Add page(s)", new_project_page_path(@project), :class => "btn"
+    = link_to "Edit", edit_project_path(@project), :class => "btn"
+    = link_to "Delete", @project, :method => 'delete', :confirm => 'This project will be deleted permanently. Do you wish to continue?', :class => "btn"
   %h1= @project.name
   %hr
   %p.description
@@ -31,6 +35,6 @@
           %iframe{:src=>project_page_url(@project, page), :name=>"#{page.title}", :style=>"width: 600px; height: 250px; display: block"}
           %br
           .clearfix
-            = label_tag "Embed Code :"
+            = label_tag "Embed Code"
             .input
-              = text_area_tag "page_url", build_iframe_code(@project, page), :readonly=>true, :style=>"width: 300px; height:100px" 
+              = text_area_tag "page_url", build_iframe_code(@project, page), :readonly=>true, :class => "xlarge" 

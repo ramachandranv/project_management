@@ -2,3 +2,16 @@
   %h1= @project.name
   %p.description
     = @project.description
+  .clearfix
+    = link_to "Add page", new_project_page_path(@project), :class => "btn"
+
+.pages
+  - if @pages.present?
+    %h2 Pages
+    - @pages.each do |page|
+      .controls
+        = link_to "Edit", edit_project_page_path(@project, page), :title => "Edit page"
+        = link_to "Delete", [@project, page], :method => 'delete', :confirm => "This page will be deleted permanently. Do you wish to continue?", :title => "Delete page"
+      .page
+        %h4= link_to page.title, "#"
+        %p= page.content

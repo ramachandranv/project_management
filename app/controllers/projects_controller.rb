@@ -1,8 +1,7 @@
 class ProjectsController < ApplicationController
   before_filter :authenticate_user!
   def index
-    @projects = current_user.projects.all
-    
+    @projects = current_user.projects.all   
   end
 
   def new
@@ -12,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @project = current_user.projects.build(params[:project])
     if @project.save
-      redirect_to "/projects/#{@project.id}"
+      redirect_to "/projects/#{@project.id}", :notice => "Project created successfully"
     else
       render :action => 'new'
     end
@@ -25,7 +24,7 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update_attributes(params[:project])
-      redirect_to "/projects/#{@project.id}"
+      redirect_to "/projects/#{@project.id}", :notice => "Project updated successfully"
     else
       render :action => 'edit'
     end
@@ -33,12 +32,13 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.find(params[:id])
+    @pages = @project.pages
   end
 
   def destroy
     @project = Project.find(params[:id])
     if @project.destroy
-      redirect_to projects_path
+      redirect_to projects_path, :notice => "Project deleted successfully"
     end
   end
 end

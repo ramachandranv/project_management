@@ -12,7 +12,5 @@
           = link_to 'Edit', edit_project_path(project), :title => "Edit project"
           = link_to 'Delete', project, :method => 'delete', :confirm => 'This project will be deleted permanently. Do you wish to continue?', :title => "Delete project"
         %h2= link_to project.name, "/projects/#{project.id}", :class => 'project_name'
-        -#%p
-          -#= project.description
       %hr
       %br 

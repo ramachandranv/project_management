@@ -1,6 +1,9 @@
 ProjectManagement::Application.routes.draw do
   devise_for :users
-  resources :projects
+
+  resources :projects do
+    resources :pages
+  end
 
   root :to => "projects#index" 
   # The priority is based upon order of creation:

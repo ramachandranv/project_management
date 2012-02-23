@@ -9,8 +9,10 @@
     - @projects.each do |project|
       .project
         %span.controls
-          = link_to 'Edit', edit_project_path(project), :title => "Edit project"
-          = link_to 'Delete', project, :method => 'delete', :confirm => 'This project will be deleted permanently. Do you wish to continue?', :title => "Delete project"
+          = link_to edit_project_path(project), :title => "Edit project" do
+            = image_tag 'pencil.png', :size => "20x20"
+          = link_to project, :method => 'delete', :confirm => 'This project will be deleted permanently. Do you wish to continue?', :title => "Delete project" do
+            = image_tag 'trash.png', :size => "20x20"
         %h2= link_to project.name, "/projects/#{project.id}", :class => 'project_name'
       %hr
       %br 

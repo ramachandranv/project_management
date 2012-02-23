@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  before_filter :authenticate_user!
+
+  layout 'application', :except => [:show]
   def new
     @project = Project.find(params[:project_id])
     @page = @project.pages.build
@@ -26,6 +29,11 @@ class PagesController < ApplicationController
     else
       render :action => 'edit'
     end
+  end
+
+  def show
+    @page = Page.find(params[:id])
+    render :layout => "content_frame"
   end
 
   def destroy

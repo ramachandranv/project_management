@@ -9,3 +9,21 @@
 //= require bootstrap-dropdown
 //= require bootstrap-modal
 //= require_tree .
+
+$(document).ready(function(){
+  preview_text = $("#page_content").val();
+  if (preview_text) {
+    preview_text = preview_text.replace(/<\/?[^>]+(>|$)/g, " "); 
+    $(".content_preview").text(preview_text);
+  }
+  $("#page_content").keyup(function(e){
+    if (e.keyCode != 188) { 
+      page_content = $(this).val();
+      text = page_content.replace(/<\/?[^>]+(>|$)/g, " "); 
+      lastchar = page_content.charAt(page_content.length - 1);
+      if (lastchar != "<") {
+        $(".page_preview .content_preview").text(text);
+      }
+    }
+  }); 
+});

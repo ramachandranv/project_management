@@ -1,4 +1,8 @@
-.page_form
-  %h2 Update Page
-  = render :partial => 'form', :locals => {:type => 'edit'}
+.row
+  .page_form.span6
+    %h2 Update Page
+    = render :partial => 'form', :locals => {:type => 'edit'}
+  .page_preview.span6
+    %h2 Preview
+    .content_preview
 

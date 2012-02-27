@@ -7,7 +7,19 @@
 
 #new_page, .edit_page {
   margin-top: 20px;
+}
+
+#new_page label, .edit_page label{
+  text-align: center;
+  width: 60px;
+}
+
+#new_page .input, .edit_page .input {
   margin-left: 80px;
+}
+
+#new_page .input .xlarge, .edit_page .input .xlarge {
+  width: 240px;
 }
 
 #page_content {
@@ -15,8 +27,9 @@
 }
 
 #errorExplanation {
-  margin-left: 80px;
-} 
+  margin-left: 40px;
+}
+
 .pages {
   margin-top: 20px;
 }
@@ -37,4 +50,19 @@
   width: 300px;
   height: 100px;
   margin-left: 10px;
+}
+
+.page_preview h2{
+  text-align: center;
+}
+
+.page_preview .content_preview {
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 300px;
+  height: 248px;
+  word-wrap: break-word;
+  padding: 2px;
+  -webkit-box-shadow: 2px 2px 2px 2px #000;
+  -moz-box-shadow: 2px 2px 2px 2px #000;
 }

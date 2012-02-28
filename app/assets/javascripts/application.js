@@ -16,8 +16,12 @@ $(document).ready(function(){
     preview_text = preview_text.replace(/<\/?[^>]+(>|$)/g, " "); 
     $(".content_preview").text(preview_text);
   }
+  var prev = 0;
   $("#page_content").keyup(function(e){
-    if (e.keyCode != 188) { 
+    if (e.keyCode == 188 || e.keyCode == 190) {
+      prev = e.keyCode;
+    }
+    if (prev != 188) { 
       page_content = $(this).val();
       text = page_content.replace(/<\/?[^>]+(>|$)/g, " "); 
       lastchar = page_content.charAt(page_content.length - 1);

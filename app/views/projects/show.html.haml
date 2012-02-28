@@ -2,7 +2,6 @@
   :javascript
     $(document).ready(function(){
       $(".view_page").click(function(){
-        console.log($(this).attr('id'));
         $("#page-"+ $(this).attr('id')).toggle("fast");
         return false;
       });
